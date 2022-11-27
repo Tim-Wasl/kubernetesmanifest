@@ -21,7 +21,7 @@ node {
                         writeFile file: "deployment.yaml", text: "${newconfig}"
                         bat "type deployment.yaml"
                         bat "git add ."
-                        bat "git commit -m "Done by Jenkins Job changemanifest: ${env.BUILD_ID}""
+                        bat "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_ID}'"
                         bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
       }
     }
