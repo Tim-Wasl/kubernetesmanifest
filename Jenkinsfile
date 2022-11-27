@@ -16,7 +16,7 @@ node {
                         bat "git config user.name Tim-Wasl"
                         //sh "git switch master"
                         bat "type deployment.yaml"
-                        bat "(gc deployment.yaml) -replace 'timcicd/repository.*', 'timcicd/repository:${DOCKERTAG}' | Out-File deployment.yaml"
+                        bat """(gc .\\deployment.yaml) -replace 'timcicd/repository.*', 'timcicd/repository:${DOCKERTAG}' | Out-File .\\deployment.yaml"""
                         bat "type deployment.yaml"
                         bat "sed -i 's+timcicd/repository.*+timcicd/repository:${DOCKERTAG}+g' deployment.yaml"
                         bat "type deployment.yaml"
