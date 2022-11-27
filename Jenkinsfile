@@ -15,7 +15,7 @@ node {
                         bat "git config user.email timwasl4@gmail.com"
                         bat "git config user.name Tim-Wasl"
                         //sh "git switch master"
-                        bat "cat deployment.yaml"
+                        sh "cat deployment.yaml"
                         bat "sed -i 's+timcicd/repository.*+timcicd/repository:${DOCKERTAG}+g' deployment.yaml"
                         bat "cat deployment.yaml"
                         bat "git add ."
