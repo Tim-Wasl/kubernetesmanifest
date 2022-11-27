@@ -20,11 +20,6 @@ node {
                         newconfig = test.replaceAll("timcicd/repository.*","timcicd/repository:${DOCKERTAG}")
                         writeFile file: "deployment.yaml", text: "${newconfig}"
                         bat "type deployment.yaml"
-         
-                        bat "(gc .\\deployment.yaml).replaceAll('timcicd/repository.*', 'timcicd/repository:${DOCKERTAG}') | Out-File .\\deployment.yaml"
-                        bat "type deployment.yaml"
-                        bat "sed -i 's+timcicd/repository.*+timcicd/repository:${DOCKERTAG}+g' deployment.yaml"
-                        bat "type deployment.yaml"
                         bat "git add ."
                         bat "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_ID}'"
                         bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
