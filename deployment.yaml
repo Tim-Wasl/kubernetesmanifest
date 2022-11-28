@@ -35,6 +35,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 8082
-    targetPort: 80
+    targetPort: 8082
   selector:
     app: flaskdemo
