@@ -9,6 +9,7 @@ node {
 
     stage('Update GIT') {
             script {
+                bat "echo ${BRANCH}"
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                          if (${BRANCH} == 'main') {
