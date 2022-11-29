@@ -11,6 +11,11 @@ node {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                         if (env.BRANCH_NAME == 'main') {
+                            bat "echo main"
+                         } else if (env.BRANCH_NAME == 'develop') {
+                             bat "echo develop"
+                         }
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         bat "git config user.email timwasl4@gmail.com"
                         bat "git config user.name Tim-Wasl"
