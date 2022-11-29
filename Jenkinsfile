@@ -25,6 +25,7 @@ node {
                             bat "git add ."
                             bat """git commit -m \"Done by Jenkins Job changemanifest: ${DOCKERTAG} \""""
                             bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
+                        }
                         else if ("${BRANCH}" == 'develop') {
                              bat "type test/deployment.yaml"
                             test = readFile "test/deployment.yaml"
