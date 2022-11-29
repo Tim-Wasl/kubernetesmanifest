@@ -11,9 +11,9 @@ node {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                         if (env.BRANCH_NAME == 'main') {
+                         if (${BRANCH} == 'main') {
                             bat "echo main"
-                         } else if (env.BRANCH_NAME == 'develop') {
+                         } else if (${BRANCH} == 'develop') {
                              bat "echo develop"
                          }
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
