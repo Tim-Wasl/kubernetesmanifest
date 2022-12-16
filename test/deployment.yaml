@@ -18,7 +18,7 @@ spec:
         app: flaskdemotest
     spec:
       containers:
-      - image: timcicd/testrepository:2
+      - image: timcicd/testrepository:4
         ports:
             - containerPort: 8087
         name: flaskdemotest
