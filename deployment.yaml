@@ -18,7 +18,7 @@ spec:
         app: flaskdemo
     spec:
       containers:
-      - image: timcicd/repository:27
+      - image: timcicd/repository:29
         ports:
             - containerPort: 8082
         name: flaskdemo
